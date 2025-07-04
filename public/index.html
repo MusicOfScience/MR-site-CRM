@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case Management Microsite</title>
+  <!-- Link to external stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Dr Monique Ryan MP Case Management</h1>
+    <h1>#KooyongForever</h1>
+  </header>
+  
+  <main>
+    <form id="inquiryForm" action="/submit" method="POST" novalidate>
+      <fieldset>
+        <legend>Submit Your Inquiry</legend>
+        
+        <!-- Inquiry Category -->
+        <label for="category">Inquiry Category:</label>
+        <select id="category" name="category" required aria-required="true">
+          <option value="">-- Select Category --</option>
+          <option value="NDIS">NDIS</option>
+          <option value="Services Australia">Services Australia</option>
+          <option value="Aged Care">Aged Care</option>
+          <option value="Medicare">Medicare</option>
+          <option value="Australian Tax Office">Australian Tax Office</option>
+          <option value="Visa and Immigration Issues">Visa and Immigration Issues</option>
+          <option value="Flag Request">Flag Request</option>
+          <option value="Meeting Request">Meeting Request</option>
+          <option value="Event Invitation">Event Invitation</option>
+        </select>
+        
+        <!-- Container for dynamic sub-category options -->
+        <div id="subCategoryContainer" class="hidden">
+          <fieldset>
+            <legend>Services Australia Options</legend>
+            <label>
+              <input type="radio" name="subCategory" value="Centrelink">
+              Centrelink
+            </label>
+            <label>
+              <input type="radio" name="subCategory" value="Rent Assistance">
+              Rent Assistance
+            </label>
+            <label>
+              <input type="radio" name="subCategory" value="Healthcare Card">
+              Healthcare Card
+            </label>
+            <label>
+              <input type="radio" name="subCategory" value="Child Care Benefit">
+              Child Care Benefit
+            </label>
+          </fieldset>
+        </div>
+        
+        <!-- Basic Contact Information -->
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required aria-required="true">
+        
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required aria-required="true">
+        
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone">
+        
+        <!-- Message/Details -->
+        <label for="message">Message / Inquiry Details:</label>
+        <textarea id="message" name="message" rows="4" required aria-required="true"></textarea>
+        
+        <!-- Additional fields for Meeting Requests/Event Invitations -->
+        <div id="meetingFields" class="hidden">
+          <h2>Meeting / Event Details</h2>
+          <label for="meetingTitle">Meeting Title:</label>
+          <input type="text" id="meetingTitle" name="meetingTitle">
+          
+          <label for="location">Location:</label>
+          <input type="text" id="location" name="location">
+          
+          <label for="meetingDateTime">Date and Time:</label>
+          <input type="datetime-local" id="meetingDateTime" name="meetingDateTime">
+          
+          <label for="attendees">Attendees:</label>
+          <input type="text" id="attendees" name="attendees">
+          
+          <label for="contactPerson">Contact Person &amp; Phone:</label>
+          <input type="text" id="contactPerson" name="contactPerson">
+          
+          <label for="meetingPurpose">Purpose of Meeting:</label>
+          <textarea id="meetingPurpose" name="meetingPurpose" rows="3"></textarea>
+          
+          <label for="previousNotes">Previous Meetings / Engagements:</label>
+          <textarea id="previousNotes" name="previousNotes" rows="3"></textarea>
+          
+          <label for="initiatedBy">Who Initiated the Meeting?</label>
+          <input type="text" id="initiatedBy" name="initiatedBy">
+          
+          <label for="agenda">Agenda (if available):</label>
+          <textarea id="agenda" name="agenda" rows="3"></textarea>
+          
+          <label for="backgroundNotes">Background Notes:</label>
+          <textarea id="backgroundNotes" name="backgroundNotes" rows="3"></textarea>
+          
+          <label for="meetingNotes">Notes from Meeting:</label>
+          <textarea id="meetingNotes" name="meetingNotes" rows="3"></textarea>
+        </div>
+        
+        <!-- Hidden field for additional details if needed -->
+        <input type="hidden" name="details" value="">
+        
+        <button type="submit">Submit Inquiry</button>
+      </fieldset>
+    </form>
+    <!-- Status message container -->
+    <div id="statusMessage" role="alert"></div>
+  </main>
+  
+  <footer>
+    <p>&copy; 2025 Moniqueryan</p>
+  </footer>
+  
+  <!-- Link to external JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
